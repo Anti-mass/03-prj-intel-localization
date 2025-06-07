@@ -29,6 +29,22 @@ header p {
   color: #e3f2fd; /* Lighter blue for softer contrast */
 }
 
+.header-gradient {
+  background: radial-gradient(
+    circle at center,
+    #0f4a77 0%,
+    #0071c5 60%,
+    #0071c5 100%
+  );
+  color: #fff;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.header-gradient h1,
+.header-gradient p {
+  color: #fff;
+}
+
 section {
   /* Add some space above and below the timeline */
   margin: 40px 0;
