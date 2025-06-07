@@ -1,0 +1,114 @@
+/* Set a blue background for the header to match Intel branding */
+header {
+  background-color: #0071c5; /* Intel blue */
+  color: #fff; /* White text for contrast */
+  padding: 40px 0; /* Space above and below the content */
+  text-align: center; /* Center all content */
+}
+
+/* Style the logo image */
+header img {
+  width: 120px; /* Set logo width */
+  height: auto; /* Keep aspect ratio */
+  margin-bottom: 20px; /* Space below the logo */
+}
+
+/* Main headline style */
+header h1 {
+  font-size: 2.5em; /* Make the headline large */
+  margin: 10px 0; /* Space above and below */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Subheading/description style */
+header p {
+  font-size: 1.2em; /* Slightly larger text */
+  max-width: 500px; /* Limit width for readability */
+  margin: 0 auto; /* Center the paragraph */
+  margin-bottom: 0; /* Remove extra space below */
+  color: #e3f2fd; /* Lighter blue for softer contrast */
+}
+
+section {
+  /* Add some space above and below the timeline */
+  margin: 40px 0;
+  padding: 20px 0;
+
+  /* Enable horizontal scroll snap for the timeline */
+  display: flex; /* Use flexbox to arrange cards in a row */
+  flex-direction: row; /* Row direction for large screens */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  gap: 20px; /* Space between cards */
+  justify-content: flex-start; /* Align cards to the left */
+  align-items: stretch; /* Make cards the same height */
+  padding-left: 20px; /* Add a little space on the left */
+  padding-right: 20px; /* Add a little space on the right */
+  scroll-snap-type: x mandatory; /* Enable horizontal snap */
+}
+
+/* Each timeline card */
+section > div {
+  background: #f5f5f5; /* Light background for cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Soft shadow */
+  padding: 20px;
+  min-width: 250px; /* Minimum width for each card */
+  max-width: 300px; /* Maximum width for each card */
+  flex: 0 0 auto; /* Prevent cards from shrinking */
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  /* Make each card a snap point */
+  scroll-snap-align: start; /* Snap each card to the start of the scroll area */
+}
+
+/* Card hover effect */
+section > div:hover {
+  transform: translateY(-8px) scale(1.03); /* Slightly lift and enlarge */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15); /* Stronger shadow */
+}
+
+/* Card images */
+section > div img {
+  width: 100%; /* Make image fill the card width */
+  height: auto; /* Keep the image's aspect ratio */
+  border-radius: 4px; /* Slightly round the image corners */
+  margin-bottom: 12px; /* Space below the image */
+}
+
+/* Make all milestone images the same size */
+.milestone-img {
+  width: 100%;        /* Fill the card width */
+  height: 100px;      /* Fixed height for consistency */
+  object-fit: cover;  /* Crop the image to fit the box */
+  border-radius: 4px; /* Slightly round the corners */
+  margin-bottom: 12px;/* Space below the image */
+}
+
+/* Hide the extra content inside each card by default */
+section > div .reveal {
+  display: none; /* Hide the element */
+}
+
+/* Show the extra content when the card is hovered */
+section > div:hover .reveal {
+  display: block; /* Show the element */
+  margin-top: 10px; /* Add some space above the revealed content */
+  color: #0071c5; /* Optional: Intel blue for revealed text */
+  font-weight: bold; /* Optional: Make revealed text bold */
+}
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 700px) {
+  section {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: visible; /* No horizontal scroll on small screens */
+    gap: 16px; /* Less space between cards */
+    padding-left: 0; /* Remove left padding */
+    padding-right: 0; /* Remove right padding */
+  }
+  section > div {
+    max-width: 100%; /* Cards take full width */
+    min-width: 0;    /* Remove minimum width */
+  }
+}
